@@ -1,0 +1,118 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 160 70% 8%;
+    --foreground: 0 0% 98%;
+
+    --card: 160 50% 12%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 160 50% 12%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 160 64% 11%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 160 40% 15%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 160 30% 20%;
+    --muted-foreground: 0 0% 70%;
+
+    --accent: 43 68% 58%;
+    --accent-foreground: 160 64% 11%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 160 30% 20%;
+    --input: 160 40% 15%;
+    --ring: 43 68% 58%;
+
+    --radius: 0.5rem;
+    
+    --hero-gradient: linear-gradient(135deg, hsl(160 64% 11% / 0.95), hsl(160 50% 8% / 0.8));
+    --gold-gradient: linear-gradient(135deg, hsl(43 68% 58%), hsl(43 80% 65%));
+    --overlay-dark: linear-gradient(180deg, hsl(160 70% 8% / 0.3), hsl(160 70% 8% / 0.9));
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 160 70% 8%;
+    --foreground: 0 0% 98%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .hero-section {
+    @apply relative min-h-screen flex items-center justify-center overflow-hidden;
+  }
+  
+  .section-title {
+    @apply text-4xl md:text-6xl font-bold tracking-tight;
+  }
+  
+  .gold-accent {
+    @apply text-accent;
+  }
+  
+  .hover-lift {
+    @apply transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl;
+  }
+  
+  .fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .overlay-gradient {
+    background: var(--overlay-dark);
+  }
+}
